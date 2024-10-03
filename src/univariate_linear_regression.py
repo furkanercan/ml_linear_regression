@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from create_univariate_dataset import create_univariate_dataset
+from create_univariate_dataset import create_univariate_dataset_linear
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 
@@ -98,7 +98,7 @@ random_state = 291192
 feature_normalization = 1
 adjust_alpha_enable = 1
 
-X_train_original, X_test_original, y_train, y_test = create_univariate_dataset(num_samples, noise_level, test_size, random_state)
+X_train_original, X_test_original, y_train, y_test = create_univariate_dataset_linear(num_samples, noise_level, test_size, random_state)
 
 if(feature_normalization):
     mean_X_train = np.mean(X_train_original)
@@ -112,9 +112,9 @@ else:
     X_test = X_test_original
 
 #Initialize parameters
-w = 0             # Can start from anywhere you want
-b = 0             # Can start from anywhere you want
-num_iters = 10000 # Number of iterations
+w = 0    # Can start from anywhere you want
+b = 0                # Can start from anywhere you want
+num_iters = 10000    # Number of iterations
 tmp_alpha = 0.00004  # Learning rate
 epsilon = 0.001
 
